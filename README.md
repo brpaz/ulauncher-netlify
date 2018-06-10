@@ -2,14 +2,13 @@
 
 > [ulauncher](https://ulauncher.io/) Extension to easy access your [Netlify](https://netlify.com) projects.
 
-## Usage
-
 ![demo](demo.gif)
 
 ## Requirements
 
 * [ulauncher](https://ulauncher.io/)
 * Python >= 2.7
+* [Netlify](https://netlify.com) account
 
 ## Install
 
