@@ -28,20 +28,18 @@ class NetlifyExtension(Extension):
     def build_results_list(self, sites):
         """ Builds the result list from a list of sites """
         items = []
-        LOGGER.debug(sites)
 
         for site in sites:
             name = site["name"]
             if site["custom_domain"] is not None:
                 name = site["custom_domain"]
 
-            items.append(ExtensionResultItem(icon='images/icon.png',
-                                             name=name,
-                                             on_enter=OpenUrlAction(
-                                                 site["url"]),
-                                             on_alt_enter=OpenUrlAction(
-                                                 site['admin_url'])
-                                             ))
+            items.append(ExtensionResultItem(
+                icon='images/icon.png',
+                name=name,
+                on_enter=OpenUrlAction(site["url"]),
+                on_alt_enter=OpenUrlAction(site['admin_url'])
+            ))
 
         return items
 

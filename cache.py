@@ -1,11 +1,18 @@
+"""
+Cache module
+"""
+
 import time
 
 
-class Cache:
-
+class Cache(object):
+    """ Class that caches the Netlify API responses """
     _cache_ = {}
     VALUE = 0
     EXPIRES = 1
+
+    def __init(self):
+        pass
 
     @classmethod
     def get(cls, key):
@@ -13,9 +20,9 @@ class Cache:
         try:
             if cls._cache_[key][cls.EXPIRES] > time.time():
                 return cls._cache_[key][cls.VALUE]
-            else:
-                del cls._cache_[key]  # Delete the item if it has expired
-                return None
+
+            del cls._cache_[key]  # Delete the item if it has expired
+            return None
         except KeyError:
             return None
 
@@ -33,8 +40,9 @@ class Cache:
     @classmethod
     def clean(cls):
         """Remove all expired items from the cache"""
-        for key in cls._cache_.keys():
-            cls.get(key)  # Attempting to fetch an expired item deletes it
+        for key, _ in cls._cache_.items():
+            # Attempting to fetch an expired item deletes it
+            cls.get(key)
 
     @classmethod
     def purge(cls):

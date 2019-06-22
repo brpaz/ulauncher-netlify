@@ -11,9 +11,9 @@
 
 ## Requirements
 
-* [ulauncher](https://ulauncher.io/)
+* [ulauncher 5](https://ulauncher.io/)
 * Python >= 3
-* [Netlify](https://netlify.com) account and a [Personal Access token](https://app.netlify.com/user/applications).
+* [Netlify](https://netlify.com) account.
 
 ## Install
 
@@ -27,9 +27,9 @@ Open ulauncher preferences window -> extensions -> add extension and paste the f
 
 ## Usage
 
-* Before usage you need to configure your Netlify "access_token" in plugin preferences.
-* The results from the Netlify API are cached by 1h.
-* Tap "enter" on a result item will open the respective site while "Alt+Enter" will open the admin of the site in Netlify.
+* Before usage you need to configure your Netlify "access_token" in plugin preferences. You can get an Personal Access Token [here](https://app.netlify.com/user/applications)
+* Then, on the Ulauncher bar, type "nf" to see your sites. The results from the Netlify API are cached by 1h.
+* Tapping "enter" on a result will open the respective site while "Alt+Enter" will open the admin of the site in Netlify.
 
 ## Development
 
