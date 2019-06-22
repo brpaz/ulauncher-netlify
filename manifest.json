@@ -1,26 +1,26 @@
 {
-    "manifest_version": "2",
-    "api_version": "1",
-    "name": "Netlify",
-    "description": "Access your Netlify projects",
-    "developer_name": "Bruno Paz",
-    "icon": "images/icon.png",
-    "options": {
-        "query_debounce": 1
+  "required_api_version": "^2.0.0",
+  "name": "Netlify",
+  "description": "Access your Netlify projects from Ulauncher",
+  "developer_name": "Bruno Paz",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 1
+  },
+  "preferences": [
+    {
+      "id": "kw",
+      "type": "keyword",
+      "name": "Netlify",
+      "description": "Netlify Projects",
+      "default_value": "nf"
     },
-    "preferences": [
-        {
-            "id": "kw",
-            "type": "keyword",
-            "name": "Netlify",
-            "default_value": "nf"
-        },
-        {
-            "id": "access_token",
-            "type": "input",
-            "name": "Acess Token",
-            "description": "The access token required to authenticate to Netlify API. Get one from <a href=\"https://app.netlify.com/account/applications/personal\">here</a>",
-            "default_value": ""
-        }
-    ]
+    {
+      "id": "access_token",
+      "type": "input",
+      "name": "Acess Token",
+      "description": "The access token required to authenticate to Netlify API. Get one from <a href=\"https://app.netlify.com/account/applications/personal\">here</a>",
+      "default_value": ""
+    }
+  ]
 }

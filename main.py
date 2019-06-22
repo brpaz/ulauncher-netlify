@@ -1,3 +1,8 @@
+"""
+Netlify Extension
+Provides quick access to your Netlify Projects
+"""
+
 import logging
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
@@ -10,7 +15,9 @@ from netlify import Client as NetlifyClient, AuthenticationException, GenericExc
 
 LOGGER = logging.getLogger(__name__)
 
+
 class NetlifyExtension(Extension):
+    """ Main Extension Class """
 
     def __init__(self):
         LOGGER.info('init Netlify Extension')
@@ -19,6 +26,7 @@ class NetlifyExtension(Extension):
         self.netlify_client = NetlifyClient("", LOGGER)
 
     def build_results_list(self, sites):
+        """ Builds the result list from a list of sites """
         items = []
         LOGGER.debug(sites)
 
@@ -39,8 +47,10 @@ class NetlifyExtension(Extension):
 
 
 class KeywordQueryEventListener(EventListener):
+    """ Handles query events """
 
     def on_event(self, event, extension):
+        """ Handle query event """
         items = []
 
         try:
@@ -50,14 +60,14 @@ class KeywordQueryEventListener(EventListener):
 
             items = extension.build_results_list(sites)
 
-        except AuthenticationException as e:
+        except AuthenticationException:
             items.append(
                 ExtensionResultItem(
                     icon='images/icon.png',
                     name="Authentication failed",
                     description="Please check the 'access_token' value on extension preferences",
                     on_enter=HideWindowAction()))
-        except GenericException as e:
+        except GenericException:
             items.append(
                 ExtensionResultItem(
                     icon='images/icon.png',
